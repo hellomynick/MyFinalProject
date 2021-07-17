@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PviDND8hlLxyWZDGn93/47gSTUT+kvNcGqcouKofsQvzS82mJvXW3Oe9Hgk2TPnytZQlwJwsoXDMBqJnIv96Mg==",
+  "dgSpecHash": "/wr5H71v/msSyzIPGR2SsMMaVfTeZmpkIDcIAWnxnqtwLFrYh3/8Uu++4OJrJ/JwhGH72CN7ttpnlCH6QShaWA==",
   "success": true,
-  "projectFilePath": "E:\\MyFinalProject\\WebOrder\\Identity.API\\Identity.API.csproj",
+  "projectFilePath": "E:\\MyFinalProject\\WebOrder\\Services\\Identity\\Identity.API\\Identity.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Minh Vu\\.nuget\\packages\\aspnetcore.healthchecks.sqlserver\\5.0.3\\aspnetcore.healthchecks.sqlserver.5.0.3.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\aspnetcore.healthchecks.ui.client\\5.0.1\\aspnetcore.healthchecks.ui.client.5.0.1.nupkg.sha512",

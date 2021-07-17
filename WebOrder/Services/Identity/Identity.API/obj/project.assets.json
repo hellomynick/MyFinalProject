@@ -10664,11 +10664,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MyFinalProject\\WebOrder\\Identity.API\\Identity.API.csproj",
+      "projectUniqueName": "E:\\MyFinalProject\\WebOrder\\Services\\Identity\\Identity.API\\Identity.API.csproj",
       "projectName": "Identity.API",
-      "projectPath": "E:\\MyFinalProject\\WebOrder\\Identity.API\\Identity.API.csproj",
+      "projectPath": "E:\\MyFinalProject\\WebOrder\\Services\\Identity\\Identity.API\\Identity.API.csproj",
       "packagesPath": "C:\\Users\\Minh Vu\\.nuget\\packages\\",
-      "outputPath": "E:\\MyFinalProject\\WebOrder\\Identity.API\\obj\\",
+      "outputPath": "E:\\MyFinalProject\\WebOrder\\Services\\Identity\\Identity.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Minh Vu\\AppData\\Roaming\\NuGet\\NuGet.Config",

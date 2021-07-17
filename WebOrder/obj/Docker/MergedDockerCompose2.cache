@@ -1,0 +1,58 @@
+services:
+  identity.api:
+    build:
+      context: E:\MyFinalProject\WebOrder
+      dockerfile: E:\MyFinalProject\WebOrder\Identity.API\Dockerfile
+    depends_on:
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      ApplicationInsights__InstrumentationKey: ""
+      BasketApiClient: http://:5103
+      ConnectionString: Server=sqldata;Database=WebOrder.Service.IdentityDb;User Id=sa;Password=Admin@123
+      MobileShoppingAggClient: http://:5120
+      MvcClient: http://:5100
+      OrchestratorType: ""
+      OrderingApiClient: http://:5102
+      SpaClient: http://:5104
+      UseCustomizationData: "True"
+      WebShoppingAggClient: http://:5121
+      WebhooksApiClient: http://:5113
+      WebhooksWebClient: http://:5114
+      XamarinCallback: http://:5105/xamarincallback
+    image: eshop/identityapi:linux-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5105
+      protocol: tcp
+  seq:
+    environment:
+      ACCEPT_EULA: "Y"
+    image: datalust/seq:latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5340
+      protocol: tcp
+  sqldata:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Admin@123
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: 5433
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose10855430136696232203_default

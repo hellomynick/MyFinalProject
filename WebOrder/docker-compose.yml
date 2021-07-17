@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+   seq:
+    image: datalust/seq:latest
+
+   sqldata:
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin@123
+    image: mcr.microsoft.com/mssql/server:2019-latest
+
+   identity.api:
+    image: ${DOCKER_REGISTRY:-eshop}/identityapi:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Identity.API/Dockerfile
+    depends_on:
+      - sqldata

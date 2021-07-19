@@ -262,6 +262,7 @@ namespace Identity.API.Controllers
                     CardHolderName = model.User.CardHolderName,
                     CardNumber = model.User.CardNumber,
                     CardType = model.User.CardType,
+                    StudentCard = model.User.StudentCard,
                     City = model.User.City,
                     Country = model.User.Country,
                     Expiration = model.User.Expiration,

@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Basket.API",
+    "\\WebOrder",
+    "\\WebOrder\\ApiGateway",
+    "\\WebOrder\\ApiGateway\\Web.BFF.Order",
+    "\\WebOrder\\ApiGateway\\Web.BFF.Order\\aggregator"
   ],
-  "SelectedNode": "\\WebsiteOrder.sln",
+  "SelectedNode": "\\Basket.API",
   "PreviewInSolutionExplorer": false
 }

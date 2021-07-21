@@ -1,0 +1,12 @@
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.csproj.AssemblyReference.cache
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.GeneratedMSBuildEditorConfig.editorconfig
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.AssemblyInfoInputs.cache
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.AssemblyInfo.cs
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.csproj.CoreCompileInputs.cache
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\bin\Debug\net5.0\EventBus.deps.json
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\bin\Debug\net5.0\EventBus.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\bin\Debug\net5.0\ref\EventBus.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\bin\Debug\net5.0\EventBus.pdb
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\ref\EventBus.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\EventBus\EventBus\obj\Debug\net5.0\EventBus.pdb

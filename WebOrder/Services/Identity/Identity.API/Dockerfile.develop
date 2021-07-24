@@ -1,18 +1,17 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0
 ARG BUILD_CONFIGURATION=Debug
 ENV ASPNETCORE_ENVIRONMENT=Development
-ENV ASPNETCORE_URLS=http://+:80
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 EXPOSE 80
 
 WORKDIR /src
-COPY ["Identity.API/Identity.API.csproj", "Identity.API/"]
+COPY ["Services/Identity/Identity.API/Identity.API.csproj", "Services/Identity/Identity.API/"]
+COPY ["BuildingBlocks/WebHostCustomization/WebHost.Customization/WebHost.Customization.csproj", "BuildingBlocks/WebHostCustomization/WebHost.Customization/"]
+COPY ["NuGet.config", "NuGet.config"]
 
-RUN dotnet restore "Identity.API/Identity.API.csproj"
+RUN dotnet restore Services/Identity/Identity.API/Identity.API.csproj -nowarn:msb3202,nu1503
 COPY . .
-WORKDIR "/src/Identity.API"
-RUN dotnet build --no-restore "Identity.API.csproj" -c $BUILD_CONFIGURATION
+WORKDIR "/src/Services/Identity/Identity.API"
+RUN dotnet build -c $BUILD_CONFIGURATION
 
-RUN echo "exec dotnet run --no-build --no-launch-profile -c $BUILD_CONFIGURATION --" > /entrypoint.sh
-
-ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+ENTRYPOINT ["dotnet", "run", "--no-build", "--no-launch-profile", "-c", "$BUILD_CONFIGURATION", "--"]

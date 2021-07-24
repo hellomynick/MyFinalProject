@@ -1,5 +1,5 @@
 ﻿using Basket.API.IntegrationEvents.Events;
-using Web.Order.BuildingBlocks.EventBus.Abstractions;
+using WebOrder.BuildingBlocks.EventBus.Abstractions;
 using WebOrder.Services.Basket.API.Models;
 using Microsoft.Extensions.Logging;
 using Serilog.Context;

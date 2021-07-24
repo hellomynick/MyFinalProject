@@ -9,7 +9,7 @@ using System;
 using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using WebOrder.Service.Basket.API.Services;
+using WebOrder.Services.Basket.API.Service;
 
 namespace WebOrder.Services.Basket.API.Controllers
 {
@@ -71,9 +71,7 @@ namespace WebOrder.Services.Basket.API.Controllers
 
             var userName = this.HttpContext.User.FindFirst(x => x.Type == ClaimTypes.Name).Value;
 
-            var eventMessage = new UserCheckoutAcceptedIntegrationEvent(userId, userName, basketCheckout.City, basketCheckout.Street,
-                basketCheckout.State, basketCheckout.Country, basketCheckout.ZipCode, basketCheckout.CardNumber, basketCheckout.CardHolderName,
-                basketCheckout.CardExpiration, basketCheckout.CardSecurityNumber, basketCheckout.CardTypeId, basketCheckout.Buyer, basketCheckout.RequestId, basket);
+            var eventMessage = new UserCheckoutAcceptedIntegrationEvent(userId, userName, basketCheckout.Buyer, basketCheckout.RequestId, basket);
 
             // Once basket is checkout, sends an integration event to
             // ordering.api to convert basket to order and proceeds with

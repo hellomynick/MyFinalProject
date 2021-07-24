@@ -19,6 +19,15 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "5433:1433"
+  basketdata:
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
   identity.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -38,3 +47,24 @@ services:
       - OrchestratorType=${ORCHESTRATOR_TYPE}
     ports:
       - "5105:80"
+
+  basket.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionString=${ESHOP_AZURE_REDIS_BASKET_DB:-basketdata}
+      - identityUrl=http://identity.api
+      - IdentityUrlExternal=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
+      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
+      - AzureServiceBusEnabled=False
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - UseLoadTest=${USE_LOADTEST:-False}
+      - PATH_BASE=/basket-api
+      - GRPC_PORT=81
+      - PORT=80
+    ports:
+      - "5103:80"
+      - "9103:81"

@@ -1,0 +1,15 @@
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\bin\Debug\net5.0\WebHost.Customization.deps.json
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\bin\Debug\net5.0\WebHost.Customization.runtimeconfig.json
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\bin\Debug\net5.0\WebHost.Customization.runtimeconfig.dev.json
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\bin\Debug\net5.0\WebHost.Customization.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\bin\Debug\net5.0\ref\WebHost.Customization.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\bin\Debug\net5.0\WebHost.Customization.pdb
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.csproj.AssemblyReference.cache
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.GeneratedMSBuildEditorConfig.editorconfig
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.AssemblyInfoInputs.cache
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.AssemblyInfo.cs
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.csproj.CoreCompileInputs.cache
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\ref\WebHost.Customization.dll
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.pdb
+E:\MyFinalProject\WebOrder\BuildingBlocks\WebHostCustomization\WebHost.Customization\obj\Debug\net5.0\WebHost.Customization.genruntimeconfig.cache

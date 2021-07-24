@@ -8,7 +8,7 @@ using Serilog;
 using System;
 using System.IO;
 using System.Net;
-using Basket.API;
+using WebOrder.Services.Basket.API;
 
 var configuration = GetConfiguration();
 

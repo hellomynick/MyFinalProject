@@ -1,9 +1,9 @@
 ﻿using Grpc.Core;
 using Microsoft.AspNetCore.Authorization;
-using WebOrder.Service.Basket.API.Models;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
+using WebOrder.Services.Basket.API.Models;
 
 namespace GrpcBasket
 {

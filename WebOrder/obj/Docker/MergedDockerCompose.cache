@@ -1,8 +1,56 @@
 services:
+  basket.api:
+    build:
+      context: E:\MyFinalProject\WebOrder
+      dockerfile: E:\MyFinalProject\WebOrder\Services\Basket\Basket.API\Dockerfile
+    depends_on:
+      basketdata:
+        condition: service_started
+      identity.api:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      ApplicationInsights__InstrumentationKey: ""
+      AzureServiceBusEnabled: "False"
+      ConnectionString: basketdata
+      EventBusConnection: rabbitmq
+      EventBusPassword: ""
+      EventBusUserName: ""
+      GRPC_PORT: "81"
+      IdentityUrlExternal: http://:5105
+      OrchestratorType: ""
+      PATH_BASE: /basket-api
+      PORT: "80"
+      UseLoadTest: "False"
+      identityUrl: http://identity.api
+    image: eshop/basket.api:linux-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5103
+      protocol: tcp
+    - mode: ingress
+      target: 81
+      published: 9103
+      protocol: tcp
+  basketdata:
+    image: redis:alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 6379
+      published: 6379
+      protocol: tcp
   identity.api:
     build:
       context: E:\MyFinalProject\WebOrder
-      dockerfile: E:\MyFinalProject\WebOrder\Identity.API\Dockerfile
+      dockerfile: E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\Dockerfile
     depends_on:
       sqldata:
         condition: service_started
@@ -22,13 +70,26 @@ services:
       WebhooksApiClient: http://:5113
       WebhooksWebClient: http://:5114
       XamarinCallback: http://:5105/xamarincallback
-    image: eshop/identityapi:linux-latest
+    image: eshop/identity.api:linux-latest
     networks:
       default: null
     ports:
     - mode: ingress
       target: 80
       published: 5105
+      protocol: tcp
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 15672
+      published: 15672
+      protocol: tcp
+    - mode: ingress
+      target: 5672
+      published: 5672
       protocol: tcp
   seq:
     environment:

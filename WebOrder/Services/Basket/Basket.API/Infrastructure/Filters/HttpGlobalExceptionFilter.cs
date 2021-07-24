@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Net;
-using WebOrder.Service.Basket.API.Infrastructure.ActionResults;
-using WebOrder.Service.Basket.API.Infrastructure.Exceptions;
+using WebOrder.Services.Basket.API.Infrastructure.ActionResults;
+using WebOrder.Services.Basket.API.Infrastructure.Exceptions;
 
 namespace Basket.API.Infrastructure.Filters
 {

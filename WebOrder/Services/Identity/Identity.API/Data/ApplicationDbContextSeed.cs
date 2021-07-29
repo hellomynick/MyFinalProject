@@ -144,7 +144,7 @@ namespace Identity.API.Data
                 LastName = "Vu",
                 Name = "Tran Van Minh Vu",
                 StudentCard = "GCD18517",
-                Expiration= "20/10/2019",
+                Expiration = "20/10/2019",
                 PhoneNumber = "1234567890",
                 UserName = "minhvu",
                 Street = "04 Duan Uan",

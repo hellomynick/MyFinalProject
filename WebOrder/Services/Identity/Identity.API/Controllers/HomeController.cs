@@ -4,6 +4,7 @@ using Identity.API.Models;
 using Identity.API.Services;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
+
 namespace Identity.API.Controllers
 {
     public class HomeController : Controller

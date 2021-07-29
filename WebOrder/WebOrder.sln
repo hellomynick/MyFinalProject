@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.UnitTests", "Service
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{65362A51-58F2-4097-AFB6-0468F519C3B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{C1656242-7CBA-41E7-84FC-86750804DC71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{C1656242-7CBA-41E7-84FC-86750804DC71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityStore", "Services\Identity\IdentityStore\IdentityStore.csproj", "{2C4E2A81-3C2B-4319-93D9-26EC7A693EC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{C1656242-7CBA-41E7-84FC-86750804DC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1656242-7CBA-41E7-84FC-86750804DC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1656242-7CBA-41E7-84FC-86750804DC71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C4E2A81-3C2B-4319-93D9-26EC7A693EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C4E2A81-3C2B-4319-93D9-26EC7A693EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C4E2A81-3C2B-4319-93D9-26EC7A693EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C4E2A81-3C2B-4319-93D9-26EC7A693EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{BB88F653-FFA0-40A5-82FD-8AD58328EB66} = {ABB03A55-5592-4F44-AB6A-10250D9183D2}
 		{65362A51-58F2-4097-AFB6-0468F519C3B2} = {FC7A63AF-27EF-4AB1-8BEB-9DE54814689A}
 		{C1656242-7CBA-41E7-84FC-86750804DC71} = {65362A51-58F2-4097-AFB6-0468F519C3B2}
+		{2C4E2A81-3C2B-4319-93D9-26EC7A693EC6} = {E15D5402-EE99-44AF-9769-B4837CC1DFE8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9980B5B2-2F7B-4602-A169-86FCFEC4255B}

@@ -98,3 +98,9 @@ E:\MyFinalProject\WebOrder\bin\Debug\Web.Order.Service.Basket.BasketAPI.runtimec
 E:\MyFinalProject\WebOrder\bin\Debug\Web.Order.Service.Basket.BasketAPI.exe
 E:\MyFinalProject\WebOrder\bin\Debug\Web.Order.Service.Basket.BasketAPI.dll
 E:\MyFinalProject\WebOrder\bin\Debug\Web.Order.Service.Basket.BasketAPI.pdb
+E:\MyFinalProject\WebOrder\bin\Debug\IdentityStore.deps.json
+E:\MyFinalProject\WebOrder\bin\Debug\IdentityStore.runtimeconfig.json
+E:\MyFinalProject\WebOrder\bin\Debug\IdentityStore.runtimeconfig.dev.json
+E:\MyFinalProject\WebOrder\bin\Debug\IdentityStore.exe
+E:\MyFinalProject\WebOrder\bin\Debug\IdentityStore.dll
+E:\MyFinalProject\WebOrder\bin\Debug\IdentityStore.pdb

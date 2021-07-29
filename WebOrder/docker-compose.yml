@@ -24,6 +24,14 @@ services:
     depends_on:
       - sqldata
 
+   identitystore:
+    image: ${REGISTRY:-eshop}/identitystore:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Services/Identity/IdentityStore/Dockerfile
+    depends_on:
+      - sqldata
+
    basket.api:
     image: ${REGISTRY:-eshop}/basket.api:${PLATFORM:-linux}-${TAG:-latest}
     build:

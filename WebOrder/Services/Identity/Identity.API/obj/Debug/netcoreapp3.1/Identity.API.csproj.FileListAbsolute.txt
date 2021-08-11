@@ -1,0 +1,8 @@
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.csproj.AssemblyReference.cache
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.AssemblyInfoInputs.cache
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.AssemblyInfo.cs
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.csproj.CoreCompileInputs.cache
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.MvcApplicationPartsAssemblyInfo.cs
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.MvcApplicationPartsAssemblyInfo.cache
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.RazorAssemblyInfo.cache
+E:\MyFinalProject\WebOrder\Services\Identity\Identity.API\obj\Debug\netcoreapp3.1\Identity.API.RazorAssemblyInfo.cs

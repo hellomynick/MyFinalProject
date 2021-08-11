@@ -263,7 +263,7 @@ namespace IdentityStore.API.Controllers
                     Close = model.User.Close,
                     City = model.User.City,
                     Country = model.User.Country,
-                    Palace = model.User.Palace,
+                    StorePalaceId = model.User.StorePalaceId,
                     Name = model.User.Name,
                     Street = model.User.Street,
                     PhoneNumber = model.User.PhoneNumber,

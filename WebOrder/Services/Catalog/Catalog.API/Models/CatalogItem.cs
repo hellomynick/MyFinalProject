@@ -1,16 +1,20 @@
 ﻿using Catalog.API.Infrastructure.Exceptions;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WeOrder.Services.Catalog.API.Models
+namespace WebOrder.Services.Catalog.API.Models
 { 
     public class CatalogItem
     {
         public int Id { get; set; }
 
+        public string StoreId { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
 
+        [Column(TypeName = "decimal (18,4)")]
         public decimal Price { get; set; }
 
         public string PictureFileName { get; set; }
@@ -20,10 +24,6 @@ namespace WeOrder.Services.Catalog.API.Models
         public int CatalogTypeId { get; set; }
 
         public CatalogType CatalogType { get; set; }
-
-        public int CatalogBrandId { get; set; }
-
-        public CatalogBrand CatalogBrand { get; set; }
 
         // Quantity in stock
         public int AvailableStock { get; set; }

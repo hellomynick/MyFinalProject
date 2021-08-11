@@ -19,6 +19,9 @@ namespace IdentityStore.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.HasSequence("store_palace_hilo")
+                .IncrementsBy(10);
+
             modelBuilder.Entity("IdentityStore.API.Models.ApplicationStore", b =>
                 {
                     b.Property<string>("Id")
@@ -72,10 +75,6 @@ namespace IdentityStore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Palace")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -87,6 +86,9 @@ namespace IdentityStore.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StorePalaceId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Street")
                         .IsRequired()
@@ -109,7 +111,27 @@ namespace IdentityStore.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("StorePalaceId");
+
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("IdentityStore.API.Models.StorePalace", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:HiLoSequenceName", "store_palace_hilo")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.SequenceHiLo);
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StorePalace");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -241,6 +263,17 @@ namespace IdentityStore.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("IdentityStore.API.Models.ApplicationStore", b =>
+                {
+                    b.HasOne("IdentityStore.API.Models.StorePalace", "StorePalace")
+                        .WithMany()
+                        .HasForeignKey("StorePalaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("StorePalace");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -104,21 +104,16 @@ namespace Identity.API.Data
 
             var user = new ApplicationUser
             {
-                CardHolderName = column[Array.IndexOf(headers, "cardholdername")].Trim('"').Trim(),
-                CardNumber = column[Array.IndexOf(headers, "cardnumber")].Trim('"').Trim(),
-                CardType = cardtype,
                 StudentCard = column[Array.IndexOf(headers, "studentcard")].Trim('"').Trim(),
                 City = column[Array.IndexOf(headers, "city")].Trim('"').Trim(),
                 Country = column[Array.IndexOf(headers, "country")].Trim('"').Trim(),
                 Email = column[Array.IndexOf(headers, "email")].Trim('"').Trim(),
-                Expiration = column[Array.IndexOf(headers, "expiration")].Trim('"').Trim(),
                 Id = Guid.NewGuid().ToString(),
                 LastName = column[Array.IndexOf(headers, "lastname")].Trim('"').Trim(),
                 Name = column[Array.IndexOf(headers, "name")].Trim('"').Trim(),
                 PhoneNumber = column[Array.IndexOf(headers, "phonenumber")].Trim('"').Trim(),
                 UserName = column[Array.IndexOf(headers, "username")].Trim('"').Trim(),
                 Street = column[Array.IndexOf(headers, "street")].Trim('"').Trim(),
-                SecurityNumber = column[Array.IndexOf(headers, "securitynumber")].Trim('"').Trim(),
                 NormalizedEmail = column[Array.IndexOf(headers, "normalizedemail")].Trim('"').Trim(),
                 NormalizedUserName = column[Array.IndexOf(headers, "normalizedusername")].Trim('"').Trim(),
                 SecurityStamp = Guid.NewGuid().ToString("D"),
@@ -134,9 +129,6 @@ namespace Identity.API.Data
             var user =
             new ApplicationUser()
             {
-                CardHolderName = "DemoUser",
-                CardNumber = "4012888888881881",
-                CardType = 1,
                 City = "Da Nang",
                 Country = "Viet Nam",
                 Email = "minhvu@gmail.com",
@@ -144,11 +136,9 @@ namespace Identity.API.Data
                 LastName = "Vu",
                 Name = "Tran Van Minh Vu",
                 StudentCard = "GCD18517",
-                Expiration = "20/10/2019",
                 PhoneNumber = "1234567890",
                 UserName = "minhvu",
                 Street = "04 Duan Uan",
-                SecurityNumber = "535",
                 NormalizedEmail = "MINHVU@GMAIL.COM",
                 NormalizedUserName = "MINHVU@GMAIL.COM",
                 SecurityStamp = Guid.NewGuid().ToString("D"),

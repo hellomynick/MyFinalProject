@@ -28,10 +28,19 @@ namespace IdentityStore.API.Data
                 var contentRootPath = env.ContentRootPath;
                 var webroot = env.WebRootPath;
 
+                if (!context.StorePalaces.Any())
+                {
+                    await context.StorePalaces.AddRangeAsync(useCustomizationData
+                        ? GetStorePalacesFromFile(contentRootPath, logger)
+                        : GetPreconfiguredStorePalaces());
+
+                    await context.SaveChangesAsync();
+                }
+
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(useCustomizationData
-                        ? GetUsersFromFile(contentRootPath, logger)
+                        ? GetUsersFromFile(contentRootPath, logger,context)
                         : GetDefaultUser());
 
                     await context.SaveChangesAsync();
@@ -55,7 +64,8 @@ namespace IdentityStore.API.Data
             }
         }
 
-        public IEnumerable<ApplicationStore> GetUsersFromFile(string contentRootPath, ILogger logger)
+
+        public IEnumerable<ApplicationStore> GetUsersFromFile(string contentRootPath, ILogger<ApplicationDbContextSeed> logger,ApplicationDbContext context)
         {
             string csvFileUsers = Path.Combine(contentRootPath, "Setup", "User.csv");
             if (!File.Exists(csvFileUsers))
@@ -78,10 +88,12 @@ namespace IdentityStore.API.Data
 
                 return GetDefaultUser();
             }
+            var storePalaceIdLookup = context.StorePalaces.ToDictionary(ct => ct.Place, ct => ct.Id);
+
             List<ApplicationStore> users = File.ReadAllLines(csvFileUsers)
                             .Skip(1) // skip header column
                             .Select(row => Regex.Split(row, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"))
-                            .SelectTry(column => CreateApplicationUser(column, csvheaders))
+                            .SelectTry(column => CreateApplicationUser(column, csvheaders,storePalaceIdLookup))
                             .OnCaughtException(ex => { logger.LogError(ex, "EXCEPTION ERROR: {Message}", ex.Message); return null; })
                             .Where(x => x != null)
                             .ToList();
@@ -89,19 +101,18 @@ namespace IdentityStore.API.Data
             return users;
         }
 
-        private ApplicationStore CreateApplicationUser(string[] column, string[] headers)
+        private ApplicationStore CreateApplicationUser(string[] column, string[] headers, Dictionary<String, int> storePalaceIdLookup)
         {
             if (column.Count() != headers.Count())
             {
                 throw new Exception($"column count '{column.Count()}' not the same as headers count'{headers.Count()}'");
             }
 
-            string cardtypeString = column[Array.IndexOf(headers, "cardtype")].Trim('"').Trim();
-            if (!int.TryParse(cardtypeString, out int cardtype))
+            string storePalaceName = column[Array.IndexOf(headers, "storepalacename")].Trim('"').Trim();
+            if (!storePalaceIdLookup.ContainsKey(storePalaceName))
             {
-                throw new Exception($"cardtype='{cardtypeString}' is not a number");
+                throw new Exception($"type={storePalaceName} does not exist in storePalaceName");
             }
-
             var user = new ApplicationStore
             {
                 Open = column[Array.IndexOf(headers, "open")].Trim('"').Trim(),
@@ -109,7 +120,7 @@ namespace IdentityStore.API.Data
                 City = column[Array.IndexOf(headers, "city")].Trim('"').Trim(),
                 Country = column[Array.IndexOf(headers, "country")].Trim('"').Trim(),
                 Email = column[Array.IndexOf(headers, "email")].Trim('"').Trim(),
-                Palace = column[Array.IndexOf(headers, "palace")].Trim('"').Trim(),
+                StorePalaceId = storePalaceIdLookup[storePalaceName],
                 Id = Guid.NewGuid().ToString(),
                 Name = column[Array.IndexOf(headers, "name")].Trim('"').Trim(),
                 PhoneNumber = column[Array.IndexOf(headers, "phonenumber")].Trim('"').Trim(),
@@ -137,7 +148,7 @@ namespace IdentityStore.API.Data
                 Open = "10AM",
                 Name = "Canteen GRW",
                 Close = "5PM",
-                Palace= "GREENWICH UNIVERSITY",
+                StorePalaceId = 1,
                 PhoneNumber = "1234567890",
                 UserName = "minhvu",
                 Street = "04 Ngo Quyen",
@@ -153,7 +164,7 @@ namespace IdentityStore.API.Data
                 user
             };
         }
-        static string[] GetHeaders(string[] requiredHeaders, string csvfile)
+        static string[] GetHeaders(string[] requiredHeaders, string csvfile, string[] optionalHeaders = null)
         {
             string[] csvheaders = File.ReadLines(csvfile).First().ToLowerInvariant().Split(',');
 
@@ -161,7 +172,13 @@ namespace IdentityStore.API.Data
             {
                 throw new Exception($"requiredHeader count '{ requiredHeaders.Count()}' is different then read header '{csvheaders.Count()}'");
             }
-
+            if (optionalHeaders != null)
+            {
+                if (csvheaders.Count() > (requiredHeaders.Count() + optionalHeaders.Count()))
+                {
+                    throw new Exception($"csv header count '{csvheaders.Count()}'  is larger then required '{requiredHeaders.Count()}' and optional '{optionalHeaders.Count()}' headers count");
+                }
+            }
             foreach (var requiredHeader in requiredHeaders)
             {
                 if (!csvheaders.Contains(requiredHeader))
@@ -210,6 +227,57 @@ namespace IdentityStore.API.Data
             {
                 logger.LogError(ex, "EXCEPTION ERROR: {Message}", ex.Message); ;
             }
+        }
+        private IEnumerable<StorePalace> GetStorePalacesFromFile(string contentRootPath, ILogger<ApplicationDbContextSeed> logger)
+        {
+            string csvFileStorePalaces = Path.Combine(contentRootPath, "Setup", "StorePalace.csv");
+            if (!File.Exists(csvFileStorePalaces))
+            {
+                return GetPreconfiguredStorePalaces();
+            }
+            string[] csvheaders;
+            try
+            {
+                string[] requiredHeaders = {
+                    "storepalace"
+            };
+                csvheaders = GetHeaders(requiredHeaders, csvFileStorePalaces);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "EXCEPTION ERROR: {Message}", ex.Message);
+
+                return GetPreconfiguredStorePalaces();
+            }
+
+            return File.ReadAllLines(csvFileStorePalaces)
+                            .Skip(1) // skip header column
+                            .SelectTry(x => CreateStorePalace(x))
+                            .OnCaughtException(ex => { logger.LogError(ex, "EXCEPTION ERROR: {Message}", ex.Message); return null; })
+                            .Where(x => x != null);
+
+        }
+        private IEnumerable<StorePalace> GetPreconfiguredStorePalaces()
+        {
+            return new List<StorePalace>()
+            {
+                new StorePalace() { Place = "Greenwich University"},
+                new StorePalace() { Place = "FPT University" },
+            };
+        }
+        private StorePalace CreateStorePalace(string palace)
+        {
+            palace = palace.Trim('"').Trim();
+
+            if (String.IsNullOrEmpty(palace))
+            {
+                throw new Exception("store palace Name is empty");
+            }
+
+            return new StorePalace
+            {
+                Place = palace,
+            };
         }
     }
 }

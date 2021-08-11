@@ -11,10 +11,10 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Basket.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "E:\\MyFinalProject\\WebOrder\\Services\\Basket\\Basket.API", "Basket.API.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("EventBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "E:\\MyFinalProject\\WebOrder\\BuildingBlocks\\EventBus\\EventBus", "EventBus.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("EventBusRabbitMQ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "E:\\MyFinalProject\\WebOrder\\BuildingBlocks\\EventBus\\EventBusRabbitMQ", "EventBusRabbitMQ.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("Web.Order.Service.Basket.BasketAPI, Version=1.0.0.0, Culture=neutral, PublicKeyTo" +
-    "ken=null", "E:\\MyFinalProject\\WebOrder\\Services\\Basket\\Basket.API", "Basket.API.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("IntegrationEventLogEF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "E:\\MyFinalProject\\WebOrder\\BuildingBlocks\\EventBus\\IntegrationEventLogEF", "IntegrationEventLogEF.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Basket.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

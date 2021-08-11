@@ -22,7 +22,7 @@ services:
       GRPC_PORT: "81"
       IdentityUrlExternal: http://:5105
       OrchestratorType: ""
-      PATH_BASE: /basket-api
+      PATH_BASE: /basket.api
       PORT: "80"
       UseLoadTest: "False"
       identityUrl: http://identity.api
@@ -46,6 +46,46 @@ services:
     - mode: ingress
       target: 6379
       published: 6379
+      protocol: tcp
+  catalog.api:
+    build:
+      context: E:\MyFinalProject\WebOrder
+      dockerfile: E:\MyFinalProject\WebOrder\Services\Catalog\Catalog.API\Dockerfile
+    depends_on:
+      identitystore:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ApplicationInsights__InstrumentationKey: ""
+      AzureStorageAccountKey: ""
+      AzureStorageAccountName: ""
+      ConnectionString: Server=sqldata;Database=WebOrder.Services.CatalogDb;User Id=sa;Password=Admin@123
+      EventBusConnection: rabbitmq
+      EventBusPassword: ""
+      EventBusUserName: ""
+      GRPC_PORT: "81"
+      IdentityUrlExternal: http://:5106
+      OrchestratorType: ""
+      PATH_BASE: /catalog-api
+      PORT: "80"
+      PicBaseUrl: ""
+      UseCustomizationData: "True"
+      identityUrl: http://identitystore
+    image: eshop/catalog.api:linux-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5101
+      protocol: tcp
+    - mode: ingress
+      target: 81
+      published: 9101
       protocol: tcp
   identity.api:
     build:
@@ -109,6 +149,120 @@ services:
     - mode: ingress
       target: 80
       published: 5106
+      protocol: tcp
+  nosqldata:
+    image: mongo
+    networks:
+      default: null
+  ordering.api:
+    build:
+      context: E:\MyFinalProject\WebOrder
+      dockerfile: E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.API\Dockerfile
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      ApplicationInsights__InstrumentationKey: ""
+      CheckUpdateTime: "30000"
+      ConnectionString: Server=sqldata;Database=WebOrder.Services.OrderingDb;User
+        Id=sa;Password=Admin@123
+      EventBusConnection: rabbitmq
+      EventBusPassword: ""
+      EventBusUserName: ""
+      GRPC_PORT: "81"
+      IdentityUrlExternal: http://:5105
+      OrchestratorType: ""
+      PATH_BASE: /ordering-api
+      PORT: "80"
+      Serilog__MinimumLevel__Override__WebOrder.BuildingBlocks.EventBusRabbitMQ: Verbose
+      Serilog__MinimumLevel__Override__ordering-api: Verbose
+      UseCustomizationData: "True"
+      UseLoadTest: "False"
+      identityUrl: http://identity.api
+    image: eshop/ordering.api:linux-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5102
+      protocol: tcp
+    - mode: ingress
+      target: 81
+      published: 9102
+      protocol: tcp
+  ordering.backgroundtasks:
+    build:
+      context: E:\MyFinalProject\WebOrder
+      dockerfile: E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.BackgroundTasks\Dockerfile
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      ApplicationInsights__InstrumentationKey: ""
+      AzureServiceBusEnabled: "False"
+      CheckUpdateTime: "30000"
+      ConnectionString: Server=sqldata;Database=WebOrder.Services.OrderingDb;User
+        Id=sa;Password=Admin@123
+      EventBusConnection: rabbitmq
+      EventBusPassword: ""
+      EventBusUserName: ""
+      GracePeriodTime: "1"
+      OrchestratorType: ""
+      Serilog__MinimumLevel__Override__WebOrder.BuildingBlocks.EventBusRabbitMQ: Verbose
+      UseCustomizationData: "True"
+      UseLoadTest: "False"
+    image: eshop/ordering.backgroundtasks:linux-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5111
+      protocol: tcp
+  ordering.signalrhub:
+    build:
+      context: E:\MyFinalProject\WebOrder
+      dockerfile: E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.SignalrHub\Dockerfile
+    depends_on:
+      basket.api:
+        condition: service_started
+      catalog.api:
+        condition: service_started
+      identity.api:
+        condition: service_started
+      nosqldata:
+        condition: service_started
+      ordering.api:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+      ApplicationInsights__InstrumentationKey: ""
+      EventBusConnection: rabbitmq
+      EventBusPassword: ""
+      EventBusUserName: ""
+      OrchestratorType: ""
+      identityUrl: http://identity.api
+    image: eshop/ordering.signalrhub:linux-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5112
       protocol: tcp
   rabbitmq:
     image: rabbitmq:3-management-alpine

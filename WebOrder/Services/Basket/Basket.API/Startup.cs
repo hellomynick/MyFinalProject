@@ -64,7 +64,6 @@ namespace WebOrder.Services.Basket.API
 
             services.AddSwaggerGen(options =>
             {
-                options.DescribeAllEnumsAsStrings();
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "WebOrder - Basket HTTP API",
@@ -79,8 +78,8 @@ namespace WebOrder.Services.Basket.API
                     {
                         Implicit = new OpenApiOAuthFlow()
                         {
-                            AuthorizationUrl = new Uri($"{Configuration.GetValue<string>("IdentityUrlExternal")}/connect/authorize"),
-                            TokenUrl = new Uri($"{Configuration.GetValue<string>("IdentityUrlExternal")}/connect/token"),
+                            AuthorizationUrl = new Uri("http://localhost:5105/connect/authorize"),
+                            TokenUrl = new Uri("http://localhost:5105/connect/token"),
                             Scopes = new Dictionary<string, string>()
                             {
                                 { "basket", "Basket API" }

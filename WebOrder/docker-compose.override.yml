@@ -82,9 +82,89 @@ services:
       - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
       - OrchestratorType=${ORCHESTRATOR_TYPE}
       - UseLoadTest=${USE_LOADTEST:-False}
-      - PATH_BASE=/basket-api
+      - PATH_BASE=/basket.api
       - GRPC_PORT=81
       - PORT=80
     ports:
       - "5103:80"
       - "9103:81"
+
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=${ESHOP_AZURE_CATALOG_DB:-Server=sqldata;Database=WebOrder.Services.CatalogDb;User Id=sa;Password=Admin@123}
+      - PicBaseUrl=${ESHOP_STORAGE_CATALOG_URL}
+      - identityUrl=http://identitystore
+      - IdentityUrlExternal=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5106
+      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
+      - AzureStorageAccountName=${ESHOP_AZURE_STORAGE_CATALOG_NAME}
+      - AzureStorageAccountKey=${ESHOP_AZURE_STORAGE_CATALOG_KEY}
+      - UseCustomizationData=True
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - GRPC_PORT=81
+      - PORT=80
+      - PATH_BASE=/catalog-api
+    ports:
+      - "5101:80"
+      - "9101:81"
+
+  ordering.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionString=${ESHOP_AZURE_ORDERING_DB:-Server=sqldata;Database=WebOrder.Services.OrderingDb;User Id=sa;Password=Admin@123}
+      - identityUrl=http://identity.api
+      - IdentityUrlExternal=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP}:5105
+      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
+      - UseCustomizationData=True
+      - CheckUpdateTime=30000
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - UseLoadTest=${USE_LOADTEST:-False}
+      - Serilog__MinimumLevel__Override__WebOrder.BuildingBlocks.EventBusRabbitMQ=Verbose
+      - Serilog__MinimumLevel__Override__ordering-api=Verbose
+      - PATH_BASE=/ordering-api
+      - GRPC_PORT=81
+      - PORT=80
+    ports:
+      - "5102:80"
+      - "9102:81"
+
+  ordering.backgroundtasks:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionString=${ESHOP_AZURE_ORDERING_DB:-Server=sqldata;Database=WebOrder.Services.OrderingDb;User Id=sa;Password=Admin@123}
+      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
+      - UseCustomizationData=True
+      - AzureServiceBusEnabled=False
+      - CheckUpdateTime=30000
+      - GracePeriodTime=1
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - UseLoadTest=${USE_LOADTEST:-False}
+      - Serilog__MinimumLevel__Override__WebOrder.BuildingBlocks.EventBusRabbitMQ=Verbose
+    ports:
+      - "5111:80"
+
+  ordering.signalrhub:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - identityUrl=http://identity.api
+    ports:
+      - "5112:80"
+    
+  

@@ -24,10 +24,38 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_basket.api$ \"/app/bin/Debug/net5.0/Web.Order.Service.Basket.BasketAPI.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_basket.api$ \"/app/bin/Debug/net5.0/Basket.API.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
+  catalog.api:
+    image: eshop/catalog.api:dev
+    container_name: Catalog.API
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "Catalog.API"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_catalog.api$
+    volumes:
+      - E:\MyFinalProject\WebOrder\Services\Catalog\Catalog.API:/app
+      - E:\MyFinalProject\WebOrder:/src
+      - C:\Users\Minh Vu\vsdbg\vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_catalog.api$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_catalog.api$ \"/app/bin/Debug/net5.0/Catalog.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
   identity.api:
     image: eshop/identity.api:dev
     container_name: Identity.API
@@ -80,6 +108,90 @@ services:
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
       #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_identitystore$ \"/app/bin/Debug/net5.0/IdentityStore.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  ordering.api:
+    image: eshop/ordering.api:dev
+    container_name: Ordering.API
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "Ordering.API"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_ordering.api$
+    volumes:
+      - E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.API:/app
+      - E:\MyFinalProject\WebOrder:/src
+      - C:\Users\Minh Vu\vsdbg\vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_ordering.api$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_ordering.api$ \"/app/bin/Debug/net5.0/Ordering.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  ordering.backgroundtasks:
+    image: eshop/ordering.backgroundtasks:dev
+    container_name: Ordering.BackgroundTasks
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "Ordering.BackgroundTasks"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_ordering.backgroundtasks$
+    volumes:
+      - E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.BackgroundTasks:/app
+      - E:\MyFinalProject\WebOrder:/src
+      - C:\Users\Minh Vu\vsdbg\vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_ordering.backgroundtasks$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_ordering.backgroundtasks$ \"/app/bin/Debug/net5.0/Ordering.BackgroundTasks.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  ordering.signalrhub:
+    image: eshop/ordering.signalrhub:dev
+    container_name: Ordering.SignalrHub
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "Ordering.SignalrHub"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_ordering.signalrhub$
+    volumes:
+      - E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.SignalrHub:/app
+      - E:\MyFinalProject\WebOrder:/src
+      - C:\Users\Minh Vu\vsdbg\vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_ordering.signalrhub$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_ordering.signalrhub$ \"/app/bin/Debug/net5.0/Ordering.SignalrHub.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true

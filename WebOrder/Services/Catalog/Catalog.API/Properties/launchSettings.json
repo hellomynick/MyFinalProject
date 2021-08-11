@@ -3,36 +3,30 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:44610",
-      "sslPort": 44366
+      "applicationUrl": "http://localhost:57424/",
+      "sslPort": 0
     }
   },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "/swagger",
+      "environmentVariables": {
+        "ConnectionString": "server=localhost,5433;Database=WebOrder.Services.CatalogDb;User Id=sa;Password=Admin@123",
+        "Serilog:LogstashgUrl": "http://locahost:8080",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "EventBusConnection": "localhost",
+        "Serilog:SeqServerUrl": "http://locahost:5340"
+      }
+    },
+    "WebOrder.Services.Catalog.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:55101/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    },
-    "Catalog.API": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": "true",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "publishAllPorts": true,
-      "useSSL": true
     }
   }
 }

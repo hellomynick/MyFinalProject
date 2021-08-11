@@ -1,6 +1,7 @@
 ﻿using IdentityStore.API.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace IdentityStore.API.Services
@@ -9,6 +10,7 @@ namespace IdentityStore.API.Services
     {
         private UserManager<ApplicationStore> _userManager;
         private SignInManager<ApplicationStore> _signInManager;
+
         public EFLoginService(UserManager<ApplicationStore> userManager, SignInManager<ApplicationStore> signInManager)
         {
             _userManager = userManager;

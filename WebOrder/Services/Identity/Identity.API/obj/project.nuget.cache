@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gLJHarj3QDHUX+RJj4AGsvKiSw+Mb1pwGKWfJFqnP6oVPIeYe8JNpfZzKczDo4LvZeXeyvLB9AmHVSDbM5l89g==",
+  "dgSpecHash": "UYADCqbH+5ecZ5tlBcoWV2xGaA4ocQVWKBSkdRrhKQXUGNtkgGtqWL+2dUEuMc4NbBlpsP/JsUK5PnK0wGFi9g==",
   "success": true,
   "projectFilePath": "E:\\MyFinalProject\\WebOrder\\Services\\Identity\\Identity.API\\Identity.API.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,9 @@
     "C:\\Users\\Minh Vu\\.nuget\\packages\\azure.identity\\1.4.0\\azure.identity.1.4.0.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\identitymodel\\4.1.1\\identitymodel.4.1.1.nupkg.sha512",
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\identitymodel.aspnetcore.oauth2introspection\\4.0.1\\identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\identityserver4\\3.1.4\\identityserver4.3.1.4.nupkg.sha512",
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\identityserver4.accesstokenvalidation\\3.0.1\\identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\identityserver4.aspnetidentity\\3.1.4\\identityserver4.aspnetidentity.3.1.4.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\identityserver4.entityframework\\3.1.4\\identityserver4.entityframework.3.1.4.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\identityserver4.entityframework.storage\\3.1.4\\identityserver4.entityframework.storage.3.1.4.nupkg.sha512",
@@ -27,6 +29,7 @@
     "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.applicationinsights.perfcountercollector\\2.17.0\\microsoft.applicationinsights.perfcountercollector.2.17.0.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.applicationinsights.windowsserver\\2.17.0\\microsoft.applicationinsights.windowsserver.2.17.0.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.applicationinsights.windowsserver.telemetrychannel\\2.17.0\\microsoft.applicationinsights.windowsserver.telemetrychannel.2.17.0.nupkg.sha512",
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.0.0\\microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\2.2.0\\microsoft.aspnetcore.connections.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",

@@ -10,8 +10,6 @@ namespace IdentityStore.API.Models
     public class ApplicationStore : IdentityUser
     {
         [Required]
-        public string Palace { get; set; }
-        [Required]
         public string Name { get; set; }
         [Required]
         public string City { get; set; }
@@ -25,5 +23,8 @@ namespace IdentityStore.API.Models
         [Required]
         [RegularExpression(@"^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm){2}", ErrorMessage = "Expiration should match a valid H/M value")]
         public string Close { get; set; }
+        public int StorePalaceId { get; set; }
+
+        public StorePalace StorePalace { get; set; }
     }
 }

@@ -2,8 +2,8 @@
 using IdentityServer4.EntityFramework.Entities;
 using IdentityServer4.EntityFramework.Mappers;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Services.Identity.API.Configuration;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,6 +30,7 @@ namespace Identity.API.Data
 
             if (!context.Clients.Any())
             {
+
                 foreach (var client in Config.GetClients(clientUrls))
                 {
                     context.Clients.Add(client.ToEntity());

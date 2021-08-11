@@ -1,0 +1,2 @@
+obj\Release\net5.0\Proto/Catalog.cs \
+obj\Release\net5.0\Proto/CatalogGrpc.cs: Proto/catalog.proto

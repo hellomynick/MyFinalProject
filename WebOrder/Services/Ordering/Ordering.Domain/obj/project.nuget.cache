@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "dCNHnOv92XiQVMgj0tEBpPzKOmVJjj7GLFKavckxo7Kleg5zFWMb77y4EXb9Z0h2mKjVUJFEoyy0MBc3CK8rKA==",
+  "success": true,
+  "projectFilePath": "E:\\MyFinalProject\\WebOrder\\Services\\Ordering\\Ordering.Domain\\Ordering.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\Minh Vu\\.nuget\\packages\\system.reflection.typeextensions\\4.7.0\\system.reflection.typeextensions.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

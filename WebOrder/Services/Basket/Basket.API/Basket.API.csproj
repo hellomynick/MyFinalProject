@@ -2,15 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Web.Order.Service.Basket.BasketAPI</AssemblyName>
-    <RootNamespace>WebOrder.Service.Basket.API</RootNamespace>
-    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     <GenerateErrorForMissingTargetingPacks>false</GenerateErrorForMissingTargetingPacks>
     <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..</DockerfileContext>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <Content Update="web.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -47,14 +45,21 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
     <PackageReference Include="Serilog.Sinks.Http" Version="7.2.0" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBus\EventBus.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\IntegrationEventLogEF\IntegrationEventLogEF.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
     <Protobuf Include="Proto\basket.proto" GrpcServices="Server" Generator="MSBuild:Compile" />
+    <Content Include="@(Protobuf)" />
+    <None Remove="@(Protobuf)" />
   </ItemGroup>
+  
 </Project>

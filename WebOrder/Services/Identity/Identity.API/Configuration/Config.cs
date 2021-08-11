@@ -193,13 +193,12 @@ namespace Services.Identity.API.Configuration
                     ClientName = "Basket Swagger UI",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
-
-                    RedirectUris = { $"{clientsUrl["BasketApi"]}/swagger/oauth2-redirect.html" },
-                    PostLogoutRedirectUris = { $"{clientsUrl["BasketApi"]}/swagger/" },
+                    RedirectUris = { "http://localhost:5103/swagger/oauth2-redirect.html" },
+                    PostLogoutRedirectUris = { "http://localhost:5103/swagger/" },
 
                     AllowedScopes =
                     {
-                        "basket"
+                         "basket", "Basket API"
                     }
                 },
                 new Client
@@ -209,8 +208,8 @@ namespace Services.Identity.API.Configuration
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris = { $"{clientsUrl["OrderingApi"]}/swagger/oauth2-redirect.html" },
-                    PostLogoutRedirectUris = { $"{clientsUrl["OrderingApi"]}/swagger/" },
+                    RedirectUris = { "http://localhost:5102/swagger/oauth2-redirect.html" },
+                    PostLogoutRedirectUris = { "http://localhost:5102/swagger/" },
 
                     AllowedScopes =
                     {

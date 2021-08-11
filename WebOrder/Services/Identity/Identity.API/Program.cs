@@ -1,4 +1,4 @@
-using IdentityServer4.EntityFramework.DbContexts;
+﻿using IdentityServer4.EntityFramework.DbContexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Identity.API;

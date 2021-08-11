@@ -82,8 +82,8 @@ namespace IdentityStore.API.Services
             if (!string.IsNullOrWhiteSpace(user.Street))
                 claims.Add(new Claim("street", user.Street));
 
-            if (!string.IsNullOrWhiteSpace(user.Palace))
-                claims.Add(new Claim("palace", user.Palace));
+            if (!string.IsNullOrWhiteSpace(user.StorePalaceId.ToString()))
+                claims.Add(new Claim("palace", user.StorePalaceId.ToString()));
 
             if (!string.IsNullOrWhiteSpace(user.Open))
                 claims.Add(new Claim("open", user.Open));

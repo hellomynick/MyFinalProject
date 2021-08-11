@@ -1,4 +1,4 @@
-﻿namespace WeOrder.Services.Catalog.API.Models
+﻿namespace WebOrder.Services.Catalog.API.Models
 {
     public class CatalogType
     {

@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "E:\\MyFinalProject\\WebOrder\\ApiGateways\\Web.BFF.Shopping\\aggregator\\aggregator.csproj",
-        "projectName": "aggregator",
+        "projectName": "Web.Shopping.HttpAggregator",
         "projectPath": "E:\\MyFinalProject\\WebOrder\\ApiGateways\\Web.BFF.Shopping\\aggregator\\aggregator.csproj",
         "packagesPath": "C:\\Users\\Minh Vu\\.nuget\\packages\\",
         "outputPath": "E:\\MyFinalProject\\WebOrder\\ApiGateways\\Web.BFF.Shopping\\aggregator\\obj\\",
@@ -39,9 +39,62 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Ocelot": {
+            "AspNetCore.HealthChecks.UI.Client": {
               "target": "Package",
-              "version": "[17.0.0, )"
+              "version": "[5.0.1, )"
+            },
+            "AspNetCore.HealthChecks.Uris": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.14.0, )"
+            },
+            "Grpc.AspNetCore.Server.ClientFactory": {
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "Grpc.Core": {
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "Grpc.Net.ClientFactory": {
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "Grpc.Tools": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.HealthChecks": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Diagnostics.HealthChecks": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.14, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.0-dev-00834, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -66,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

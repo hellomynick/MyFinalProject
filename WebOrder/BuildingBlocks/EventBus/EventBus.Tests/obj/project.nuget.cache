@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kSZsAK0wV0rkUr84w32k4yswXwBTtcvYSpiHvHPxUWB3DWkWTTBT8jDqKtBGS6lnggRgMY/Kb2ISCrX78eAlxA==",
+  "dgSpecHash": "12vfazZhHHbkJXedcCRiaeQPvAYh2FF2oWv/9XYvdCXRsvEYTaD/bqna4beCH3Qd+mv+XiMwTaJgeLIOTyp0hA==",
   "success": true,
   "projectFilePath": "E:\\MyFinalProject\\WebOrder\\BuildingBlocks\\EventBus\\EventBus.Tests\\EventBus.Tests.csproj",
   "expectedPackageFiles": [

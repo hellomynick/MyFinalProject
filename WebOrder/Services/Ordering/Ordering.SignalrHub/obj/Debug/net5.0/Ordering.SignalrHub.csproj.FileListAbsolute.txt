@@ -108,7 +108,6 @@ E:\MyFinalProject\WebOrder\Services\Order\Ordering.SignalrHub\obj\Debug\net5.0\O
 E:\MyFinalProject\WebOrder\Services\Order\Ordering.SignalrHub\obj\Debug\net5.0\ref\Ordering.SignalrHub.dll
 E:\MyFinalProject\WebOrder\Services\Order\Ordering.SignalrHub\obj\Debug\net5.0\Ordering.SignalrHub.pdb
 E:\MyFinalProject\WebOrder\Services\Order\Ordering.SignalrHub\obj\Debug\net5.0\Ordering.SignalrHub.genruntimeconfig.cache
-E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.SignalrHub\bin\Debug\net5.0\appsettings.Development.json
 E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.SignalrHub\bin\Debug\net5.0\appsettings.json
 E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.SignalrHub\bin\Debug\net5.0\Ordering.SignalrHub.exe
 E:\MyFinalProject\WebOrder\Services\Ordering\Ordering.SignalrHub\bin\Debug\net5.0\Ordering.SignalrHub.deps.json

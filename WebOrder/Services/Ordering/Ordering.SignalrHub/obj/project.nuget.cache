@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mryxxYx9ITxYCuK5aNI51j9LWPPtcUXmskObimwfkutTQ8JKF6fHpXniuuiuAVR/JQozkysQftR/e1Ndy4E1HA==",
+  "dgSpecHash": "Dx174NCnMj+lCIxVjg97x+0sDP/cfN25g9fQ24e0YFAaT16xKfz9xFsd32wPB+YPOdzBol+Qr33RMdTgJd0cZQ==",
   "success": true,
   "projectFilePath": "E:\\MyFinalProject\\WebOrder\\Services\\Ordering\\Ordering.SignalrHub\\Ordering.SignalrHub.csproj",
   "expectedPackageFiles": [

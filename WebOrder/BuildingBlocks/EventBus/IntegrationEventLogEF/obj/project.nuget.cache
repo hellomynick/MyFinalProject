@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k/hS0uKQsrFz5X7AAQJq6W50ojW8HN7PHo0Pl4omEBgKNXNCr2196lQU+KSIRdQOE5ns91J8yferrC65xybP3Q==",
+  "dgSpecHash": "jjymPPhk48sQpPfq/JBY8V4l7flcMLhJbkdI3aD8lLMj1jZGRR2AuvCPHLYiBsIh6E1VlAIGoujuwyVJCvtqwA==",
   "success": true,
   "projectFilePath": "E:\\MyFinalProject\\WebOrder\\BuildingBlocks\\EventBus\\IntegrationEventLogEF\\IntegrationEventLogEF.csproj",
   "expectedPackageFiles": [

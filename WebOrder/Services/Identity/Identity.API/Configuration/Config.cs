@@ -131,7 +131,7 @@ namespace Services.Identity.API.Configuration
                     {
                         new Secret("secret".Sha256())
                     },
-                    ClientUri = $"{clientsUrl["WebhooksWeb"]}",                             // public uri of the client
+                    ClientUri = "http://localhost:5114",                             // public uri of the client
                     AllowedGrantTypes = GrantTypes.Hybrid,
                     AllowAccessTokensViaBrowser = false,
                     RequireConsent = false,
@@ -139,11 +139,12 @@ namespace Services.Identity.API.Configuration
                     AlwaysIncludeUserClaimsInIdToken = true,
                     RedirectUris = new List<string>
                     {
-                        $"{clientsUrl["WebhooksWeb"]}/signin-oidc"
+
+                        "http://localhost:5114/signin-oidc"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
-                        $"{clientsUrl["WebhooksWeb"]}/signout-callback-oidc"
+                        "http://localhost:5114/signout-callback-oidc"
                     },
                     AllowedScopes = new List<string>
                     {
@@ -254,8 +255,8 @@ namespace Services.Identity.API.Configuration
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris = { $"{clientsUrl["WebhooksApi"]}/swagger/oauth2-redirect.html" },
-                    PostLogoutRedirectUris = { $"{clientsUrl["WebhooksApi"]}/swagger/" },
+                    RedirectUris = { "http://localhost:5113/swagger/oauth2-redirect.html" },
+                    PostLogoutRedirectUris = { "http://localhost:5113/swagger/" },
 
                     AllowedScopes =
                     {

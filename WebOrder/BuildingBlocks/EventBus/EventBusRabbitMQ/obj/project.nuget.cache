@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TLYydvuARhjRdLsd+ksqturzH48QIQo1GHmt7sdWAH9N6L0CghxpdmehQ1+W5TZqoVcJEY2ea8MdB2Vyv3UMww==",
+  "dgSpecHash": "rjg16yPSeuUSlSWyf7SET2+4eHCtnzwG/R1ysFQEcHpeB7MF9vBwg/s/5tLNf4xLbrH8FS9ilXdobttU4lIWtg==",
   "success": true,
   "projectFilePath": "E:\\MyFinalProject\\WebOrder\\BuildingBlocks\\EventBus\\EventBusRabbitMQ\\EventBusRabbitMQ.csproj",
   "expectedPackageFiles": [
